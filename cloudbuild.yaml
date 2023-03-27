@@ -1,0 +1,13 @@
+steps:
+# Build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/fir-ninja-4fab2/flask_api', '.']
+# Push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/fir-ninja-4fab2/flask_api']
+# Deploy container image to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args: ['run', 'deploy', 'flask-api', '--image', 'gcr.io/fir-ninja-4fab2/flask_api', '--region', 'us-central1', '--port', '80']
+images:
+- gcr.io/fir-ninja-4fab2/flask_api
