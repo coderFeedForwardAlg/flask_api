@@ -14,7 +14,7 @@ class testApi2(Resource):
          return {"v3, favoret food is: ": food}
 
 api.add_resource(testApi, "/test/<string:name>")
-api.add_resource(testApi2, "/test2/<string:name>")
+api.add_resource(testApi2, "/test2/<string:food>")
 
 if __name__ == '__main__':
     from waitress import serve
