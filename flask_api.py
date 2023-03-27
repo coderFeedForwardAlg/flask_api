@@ -7,7 +7,7 @@ api = Api(app)
 
 class testApi(Resource):
      def get(self, name):
-         return {"v2, name is: ": name}
+         return {"v3, name is: ": name}
 
 api.add_resource(testApi, "/test/<string:name>")
 
