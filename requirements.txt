@@ -1,3 +1,5 @@
 Flask==2.2.2
 flask_restful
 waitress
+numpy
+pandas
