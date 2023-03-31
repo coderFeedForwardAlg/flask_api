@@ -19,7 +19,7 @@ class testApi2(Resource):
 
 @app.route('/json_example', methods=['POST', 'GET'])
 def handle_json():
-    data = request.json
+    data = request.data
     d = {'col1': data[0], 'col2': data[1]}
     df = pd.DataFrame(data=d)
     return data
