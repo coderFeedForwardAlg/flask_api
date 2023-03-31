@@ -1,5 +1,4 @@
 from flask import Flask
-
 from flask_restful import Api, Resource, request
 import numpy as np
 import pandas as pd
@@ -18,7 +17,7 @@ class testApi2(Resource):
      def post(self, food):
          return {"v3, favoret food is: ": food}
 
-@app.route('/json_example', methods=['POST'])
+@app.route('/json_example', methods=['POST', 'GET'])
 def handle_json():
     data = request.json
     d = {'col1': data[0], 'col2': data[1]}
