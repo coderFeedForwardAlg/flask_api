@@ -3,9 +3,11 @@ from flask import Flask
 from flask_restful import Api, Resource, request
 import numpy as np
 import pandas as pd
+from flask_cors import CORS
 
 
 app = Flask(__name__)
+CORS(app)
 api = Api(app)
 
 class testApi(Resource):
@@ -19,6 +21,8 @@ class testApi2(Resource):
 @app.route('/json_example', methods=['POST'])
 def handle_json():
     data = request.json
+    d = {'col1': data[0], 'col2': data[1]}
+    df = pd.DataFrame(data=d)
     return data
 
 api.add_resource(testApi, "/test/<string:name>")

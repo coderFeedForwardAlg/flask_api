@@ -3,3 +3,4 @@ flask_restful
 waitress
 numpy
 pandas
+flask_cors
