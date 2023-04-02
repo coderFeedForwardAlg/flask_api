@@ -9,6 +9,8 @@ app = Flask(__name__)
 CORS(app)
 api = Api(app)
 
+
+
 class testApi(Resource):
      def get(self, name):
          return {"v3, name is: ": name}
@@ -19,10 +21,14 @@ class testApi2(Resource):
 
 @app.route('/json_example', methods=['POST', 'GET'])
 def handle_json():
-    data = request.data
-    d = {'col1': data[0], 'col2': data[1]}
+    data = request.get_json()
+    d = {'day': data["day"], 'durationArr': data["durationArr"]}
     df = pd.DataFrame(data=d)
-    return data
+    df = df.astype(float)
+    df = df.groupby(["day"]).mean()
+    # print("printing: \n", flush=True)
+    # print(df, flush=True)
+    return df.durationArr.tolist()
 
 api.add_resource(testApi, "/test/<string:name>")
 api.add_resource(testApi2, "/test2/<string:data>")
