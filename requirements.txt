@@ -4,3 +4,4 @@ waitress
 numpy
 pandas
 flask_cors
+sklearn
