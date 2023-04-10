@@ -3,9 +3,9 @@ from flask_restful import Api, Resource, request
 import numpy as np
 import pandas as pd
 from flask_cors import CORS
-from sklearn.tree import DecisionTreeClassifier
-from sklearn import tree
-from sklearn.preprocessing import KBinsDiscretizer 
+# from sklearn.tree import DecisionTreeClassifier
+# from sklearn import tree
+# from sklearn.preprocessing import KBinsDiscretizer 
 
 app = Flask(__name__)
 CORS(app)
