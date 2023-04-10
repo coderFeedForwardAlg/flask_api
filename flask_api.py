@@ -51,38 +51,38 @@ def handle_json():
 
 
 # desision tree 
-@app.route('/DecisionTree', methods=['POST', 'GET'])
-def handle_json_for_tree():
-    data = request.get_json()
-    # set up dataframe 
-    d = {'day': data["day"], 
-         'durationArr': data["durationArr"], 
-         'time': data['time'],
-         }
+# @app.route('/DecisionTree', methods=['POST', 'GET'])
+# def handle_json_for_tree():
+#     data = request.get_json()
+#     # set up dataframe 
+#     d = {'day': data["day"], 
+#          'durationArr': data["durationArr"], 
+#          'time': data['time'],
+#          }
     
-    df = pd.DataFrame(data=d)
-        # not sure you want the whole thing to be float 
-    df = df.astype(float)
+#     df = pd.DataFrame(data=d)
+#         # not sure you want the whole thing to be float 
+#     df = df.astype(float)
 
 
-    y = { 'focusAndWork': data['focusAndWork']}
-    y = pd.DataFrame(data=y)
-    print(y,flush=True)
-        # bin y 
-    enc = KBinsDiscretizer(n_bins=5)
-    y = enc.fit_transform(y)
-    print(y,flush=True)
+#     y = { 'focusAndWork': data['focusAndWork']}
+#     y = pd.DataFrame(data=y)
+#     print(y,flush=True)
+#         # bin y 
+#     enc = KBinsDiscretizer(n_bins=5)
+#     y = enc.fit_transform(y)
+#     print(y,flush=True)
     
-    #need radome seed? 
-    decision_tree = DecisionTreeClassifier(random_state=0, max_depth=5)
-    decision_tree = decision_tree.fit(df,y.toarray())
-    text_representation = tree.export_text(decision_tree)
-    print("code ran", flush=True)
-    print(text_representation, flush=True)
+#     #need radome seed? 
+#     decision_tree = DecisionTreeClassifier(random_state=0, max_depth=5)
+#     decision_tree = decision_tree.fit(df,y.toarray())
+#     text_representation = tree.export_text(decision_tree)
+#     print("code ran", flush=True)
+#     print(text_representation, flush=True)
 
-    # print("printing: \n", flush=True)
-    # print(df, flush=True)
-    return {"hi" : True}
+#     # print("printing: \n", flush=True)
+#     # print(df, flush=True)
+#     return {"hi" : True}
 
 api.add_resource(testApi, "/test/<string:name>")
 api.add_resource(testApi2, "/test2/<string:data>")
