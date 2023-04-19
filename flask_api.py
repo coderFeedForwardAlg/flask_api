@@ -1,3 +1,4 @@
+import flask
 from flask import Flask
 from flask_restful import Api, Resource, request
 import numpy as np
@@ -52,7 +53,7 @@ def handle_json():
         # for testing 
     # print("printing: \n", flush=True)
     # print(df, flush=True)
-    resp = Flask.Response(df.durationArr.tolist())
+    resp = flask.Response(df.durationArr.tolist())
     resp.headers['Access-Control-Allow-Origin'] = 'https://productivitypangolin.com' #str(os.getenv('CORS_ORIGINS'))
     return resp
 
@@ -69,7 +70,6 @@ class forToken(Resource):
 
         currentTimestamp = int(time.time())
         privilegeExpiredTs = currentTimestamp + expireTimeInSeconds
-        # privilegeExpiredTs = str(privilegeExpiredTs)
         token = RtcTokenBuilder.buildTokenWithUid(appID, appCertificate, channelName, uid, role, privilegeExpiredTs)
         
         return {"token: ": token}
