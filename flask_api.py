@@ -15,9 +15,9 @@ import os
 # from sklearn.preprocessing import KBinsDiscretizer 
 
 app = Flask(__name__)
-CORS(app)
+# CORS(app)
+cors = CORS(app, resources={r'/*': {'origins':'https://productivitypangolin.com'}})
 api = Api(app)
-
 
 
 class testApi(Resource):
@@ -56,7 +56,6 @@ def handle_json():
     resp = flask.Response(df.durationArr.tolist())
     resp.headers['Access-Control-Allow-Origin'] = 'https://productivitypangolin.com' #str(os.getenv('CORS_ORIGINS'))
     return resp
-
 
 class forToken(Resource):
      def get(self, channel):
