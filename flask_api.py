@@ -6,7 +6,7 @@ from flask_cors import CORS
 import time
 from agora_token_builder import RtcTokenBuilder
 # for env var 
-import os
+# import os
 
 
 # from sklearn.tree import DecisionTreeClassifier
@@ -58,8 +58,8 @@ def handle_json():
 class forToken(Resource):
      def get(self, channel):
         # env vars for agora
-        appID = os.getenv('agroaAppID')
-        appCertificate = os.getenv('agoraAppCertificate')
+        appID = 0 # os.getenv('agroaAppID')
+        appCertificate = 0 # os.getenv('agoraAppCertificate')
         channelName = channel
         uid = 0 # idk where to get the acutual number 
         role = 0 # idk what this even should be 
