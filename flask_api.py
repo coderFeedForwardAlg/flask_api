@@ -16,7 +16,8 @@ import os
 
 app = Flask(__name__)
 # CORS(app)
-cors = CORS(app, resources={r'*': {'origins':'https://productivitypangolin.com'}})
+# cors = CORS(app, resources={r'*': {'origins':'https://productivitypangolin.com'}})
+CORS(app)
 api = Api(app)
 
 
@@ -53,9 +54,9 @@ def handle_json():
         # for testing 
     # print("printing: \n", flush=True)
     # print(df, flush=True)
-    resp = flask.Response(df.durationArr.tolist())
-    resp.headers['Access-Control-Allow-Origin'] = os.getenv('CORS_ORIGINS')
-    return resp
+    # resp = flask.Response(df.durationArr.tolist())
+    # resp.headers['Access-Control-Allow-Origin'] = os.getenv('CORS_ORIGINS')
+    return df.durationArr.tolist()
 
 class forToken(Resource):
      def get(self, channel):
