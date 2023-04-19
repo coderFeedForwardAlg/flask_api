@@ -53,7 +53,7 @@ def handle_json():
     # print("printing: \n", flush=True)
     # print(df, flush=True)
     resp = Flask.Response(df.durationArr.tolist())
-    resp.headers['Access-Control-Allow-Origin'] = str(os.getenv('CORS_ORIGINS'))
+    resp.headers['Access-Control-Allow-Origin'] = 'https://productivitypangolin.com' #str(os.getenv('CORS_ORIGINS'))
     return resp
 
 
