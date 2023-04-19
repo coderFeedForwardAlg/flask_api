@@ -57,6 +57,7 @@ def handle_json():
 
 class forToken(Resource):
      def get(self, channel):
+        # env vars for agora
         appID = os.getenv('agroaAppID')
         appCertificate = os.getenv('agoraAppCertificate')
         channelName = channel
