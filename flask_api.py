@@ -54,7 +54,7 @@ def handle_json():
     # print(df, flush=True)
     resp = Flask.Response(df.durationArr.tolist())
     resp.headers['Access-Control-Allow-Origin'] = str(os.getenv('CORS_ORIGINS'))
-    return df.durationArr.tolist()
+    return resp
 
 
 class forToken(Resource):
