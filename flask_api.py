@@ -3,6 +3,12 @@ from flask_restful import Api, Resource, request
 import numpy as np
 import pandas as pd
 from flask_cors import CORS
+import time
+from agora_token_builder import RtcTokenBuilder
+# for env var 
+import os
+
+
 # from sklearn.tree import DecisionTreeClassifier
 # from sklearn import tree
 # from sklearn.preprocessing import KBinsDiscretizer 
@@ -48,6 +54,22 @@ def handle_json():
     # print(df, flush=True)
     return df.durationArr.tolist()
 
+
+class forToken(Resource):
+     def get(self, channel):
+        appID = os.getenv('agroaAppID')
+        appCertificate = os.getenv('agoraAppCertificate')
+        channelName = channel
+        uid = 0 # idk where to get the acutual number 
+        role = 0 # idk what this even should be 
+        expireTimeInSeconds = 3600
+        currentTimestamp = int(time.time())
+        privilegeExpiredTs = currentTimestamp + expireTimeInSeconds
+        token = RtcTokenBuilder.buildTokenWithUid(appID, appCertificate, channelName, uid, role, privilegeExpiredTs)
+        
+        return {"token: ": token}
+
+api.add_resource(forToken, "/get_token/<string:channel>")
 
 
 # desision tree 
