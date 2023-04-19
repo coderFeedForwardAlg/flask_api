@@ -1,4 +1,4 @@
-FROM python:3.11
+FROM python:3.10
 RUN pip install --upgrade pip
 ENV PORT 80
 ENV HOST 0.0.0.0
