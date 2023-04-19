@@ -5,4 +5,4 @@ numpy
 pandas
 flask_cors
 scikit-learn
-RtcTokenBuilder
+agora-token-builder
