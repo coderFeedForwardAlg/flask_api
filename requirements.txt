@@ -4,5 +4,5 @@ waitress
 numpy
 pandas
 flask_cors
-sklearn
+scikit-learn
 RtcTokenBuilder
