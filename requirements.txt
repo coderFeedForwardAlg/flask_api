@@ -5,5 +5,5 @@ numpy
 pandas
 flask_cors
 sklearn
-AccessToken
+RtcTokenBuilder
 os
