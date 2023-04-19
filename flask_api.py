@@ -60,13 +60,14 @@ class forToken(Resource):
         # env vars for agora
         appID = 0 # os.getenv('agroaAppID')
         appCertificate = 0 # os.getenv('agoraAppCertificate')
-        channelName = channel
+        channelName = str(channel)
         uid = 0 # idk where to get the acutual number 
         role = 0 # idk what this even should be 
         expireTimeInSeconds = 3600
+
         currentTimestamp = int(time.time())
         privilegeExpiredTs = currentTimestamp + expireTimeInSeconds
-        privilegeExpiredTs = str(privilegeExpiredTs)
+        # privilegeExpiredTs = str(privilegeExpiredTs)
         token = RtcTokenBuilder.buildTokenWithUid(appID, appCertificate, channelName, uid, role, privilegeExpiredTs)
         
         return {"token: ": token}
