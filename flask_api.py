@@ -66,6 +66,7 @@ class forToken(Resource):
         expireTimeInSeconds = 3600
         currentTimestamp = int(time.time())
         privilegeExpiredTs = currentTimestamp + expireTimeInSeconds
+        privilegeExpiredTs = str(privilegeExpiredTs)
         token = RtcTokenBuilder.buildTokenWithUid(appID, appCertificate, channelName, uid, role, privilegeExpiredTs)
         
         return {"token: ": token}
