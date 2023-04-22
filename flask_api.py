@@ -64,7 +64,7 @@ class forToken(Resource):
         appID = str(os.getenv('agroaAppID') )
         appCertificate = str( os.getenv('agoraAppCertificate') )
         channelName = str(channel)
-        uid = "0" # idk where to get the acutual number 
+        uid = 0 # idk where to get the acutual number 
         role = 0 # idk what this even should be 
         expireTimeInSeconds = 3600
 
