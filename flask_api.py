@@ -61,8 +61,10 @@ def handle_json():
 class forToken(Resource):
      def get(self, channel):
         # env vars for agora
-        appID = str(os.getenv('agroaAppID') )
-        appCertificate = str( os.getenv('agoraAppCertificate') )
+        appID = str(os.environ.get('agroaAppID') )
+        
+        appCertificate = str( os.environ.get('agoraAppCertificate') )
+       
         channelName = str(channel)
         uid = 0 # idk where to get the acutual number 
         role = 0 # idk what this even should be 
