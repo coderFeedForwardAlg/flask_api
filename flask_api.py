@@ -61,7 +61,7 @@ def handle_json():
 class forToken(Resource):
      def get(self, channel):
         # env vars for agora
-        appID = str(os.environ.get('agroaAppID') )
+        appID = str(os.environ.get('agoraAppID') )
         
         appCertificate = str( os.environ.get('agoraAppCertificate') )
        
@@ -74,7 +74,7 @@ class forToken(Resource):
         privilegeExpiredTs = currentTimestamp + expireTimeInSeconds
         token = RtcTokenBuilder.buildTokenWithUid(appID, appCertificate, channelName, uid, role, privilegeExpiredTs)
         
-        return {"token: ": appID}
+        return {"token: ": token}
 
 api.add_resource(forToken, "/get_token/<string:channel>")
 
