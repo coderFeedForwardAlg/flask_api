@@ -74,7 +74,7 @@ class forToken(Resource):
         privilegeExpiredTs = currentTimestamp + expireTimeInSeconds
         token = RtcTokenBuilder.buildTokenWithUid(appID, appCertificate, channelName, uid, role, privilegeExpiredTs)
         
-        return {"token: ": token}
+        return {"token: ": appID}
 
 api.add_resource(forToken, "/get_token/<string:channel>")
 
